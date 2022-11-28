@@ -9,7 +9,7 @@ module.exports = class extends Base {
     const brandList = await this.model('brand').where({is_new: 1}).order({new_sort_order: 'asc'}).limit(4).select();
     const topicList = await this.model('topic').limit(3).select();
 
-    const categoryList = await this.model('category').where({parent_id: 0, name: ['<>', '推荐']}).select();
+    const categoryList = await this.model('category').where({parent_id: 0, name: ['<>', '推00荐']}).select();
     const newCategoryList = [];
     for (const categoryItem of categoryList) {
       const childCategoryIds = await this.model('category').where({parent_id: categoryItem.id}).getField('id', 100);
